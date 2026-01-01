@@ -5,8 +5,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bilalazzam.contacts_provider.Contact
-import com.bilalazzam.contacts_provider.ContactsProvider
+import com.bilalazzam.kontacts.Contact
+import com.bilalazzam.kontacts.ContactsProvider
+import com.bilalazzam.kontacts.ContactField.*
 import dev.icerock.moko.permissions.DeniedAlwaysException
 import dev.icerock.moko.permissions.DeniedException
 import dev.icerock.moko.permissions.Permission
@@ -53,7 +54,15 @@ class ContactsViewModel(
             isLoading = true
             try {
                 val allContacts = withContext(Dispatchers.IO) {
-                    contactsProvider.getAllContacts()
+                    contactsProvider.getAllContacts(
+                        setOf(
+                            ID,
+                            FIRST_NAME,
+                            LAST_NAME,
+                            PHONE_NUMBERS,
+                            AVATAR
+                        )
+                    )
                 }
                 contacts = allContacts.filter { it.hasPhoneNumbers }
             } catch (e: Exception) {

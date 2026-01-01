@@ -17,7 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
-import com.bilalazzam.contacts_provider.ContactAvatar
+import com.bilalazzam.kontacts.ContactAvatar
 import kotlin.math.abs
 
 

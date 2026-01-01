@@ -23,7 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.bilalazzam.contacts_provider.ContactsProvider
+import com.bilalazzam.mycontacts.di.dependencies
 import dev.icerock.moko.permissions.PermissionState
 import dev.icerock.moko.permissions.compose.BindEffect
 import dev.icerock.moko.permissions.compose.rememberPermissionsControllerFactory
@@ -31,7 +31,8 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 @Preview
-fun App(contactsProvider: ContactsProvider) {
+fun ContactsScreen() {
+    val contactsProvider = dependencies.contactsProvider
     MaterialTheme {
         val factory = rememberPermissionsControllerFactory()
         val controller = remember(factory) {
